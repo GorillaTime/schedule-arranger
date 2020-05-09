@@ -5,9 +5,9 @@ const authenticationEnsurer = require('./authentication-ensurer');
 const Availability = require('../models/availability');
 
 router.post(
-  '/scheduleId/users/:userId/candidates/:candidateId',
+  '/:scheduleId/users/:userId/candidates/:candidateId',
   authenticationEnsurer,
-  (req,res,next) => {
+  (req, res, next) => {
     const scheduleId = req.params.scheduleId;
     const userId = req.params.userId;
     const candidateId = req.params.candidateId;
@@ -19,7 +19,7 @@ router.post(
       userId: userId,
       candidateId: candidateId,
       availability: availability
-    }).then(()=> {
+    }).then(() => {
       res.json({ status: 'OK', availability: availability });
     });
   }
