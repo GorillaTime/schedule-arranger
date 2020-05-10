@@ -17,4 +17,7 @@ block content
       p 候補日程の追加 (改行して複数入力してください)
       textarea(name="candidates")
     div
-      button(type="submit") 以上の内容で予定を編集する          
+      button(type="submit") 以上の内容で予定を編集する
+  h3 危険な変更
+  form(method="post", action=`/schedules/${schedule.scheduleId}?delete=1`)
+    button(type="submit") この予定を削除する              
